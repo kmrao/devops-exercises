@@ -1,0 +1,7 @@
+Step1:  Install  Docker.
+Step2:  Pull Latest Jenkins Image
+Step3:  Run the Jenkins Docker Image and Install Default plugins
+Step4:  Build the project   https://github.com/kmrao/usermanagement.git
+Step5:  Build the Docker Image for the above project output with tag usermanagement:1.0
+Step6:  Push the Docker Image to Docker Hub.
+Step7:  Down load the Docker Image and start the server and  make sure that all the endpoints are working properly.
