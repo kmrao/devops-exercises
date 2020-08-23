@@ -1,7 +1,7 @@
 Step1:  Install  Docker.
 Step2:  Pull Latest Jenkins Image
-Step3:  Run the Jenkins Docker Image and Install Default plugins
-Step4:  Build the project   https://github.com/kmrao/usermanagement.git
+Step3:  Run the Jenkins Docker Image and Install Default plugins (Additionally install Docker Plugin)
+Step4:  Build the project   https://github.com/kmrao/usermanagement.git by using pom.xml
 Step5:  Build the Docker Image for the above project output with tag usermanagement:1.0
 Step6:  Push the Docker Image to Docker Hub.
 Step7:  Down load the Docker Image and start the server and  make sure that all the endpoints are working properly.
@@ -12,3 +12,45 @@ Post exercise steps:
 2. Delete  the Image for the application and jenkins
 3. Clear the Jenkins_home folder.
 
+
+
+Solution:
+=========
+Step1: Assume Docker is already installed
+
+Step2: Pull Jenkins Docker Image with below command
+        docker pull jenkins/jenkins
+
+Step3: Run the Jenkins Docker Image with name myjenkins on port 8080  with below command
+       docker run --name=myjenkins -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins
+
+Step4: Collect the password from secrets file and login into Jenkins Console by using below steps
+       docker exec -it <<containerId>> bash
+       cat /var/jenkins_home/secrets/initialAdminPassword ( we did not use any volumes , so this file is available inside the container)
+
+       docker exec -it 00ed8f6b85d6 bash
+
+
+Step5: Login into Jenkins by using the above password and Install suggested plugins
+
+Step6: set up the maven with below steps
+    Manage Jenkins -> Global Tool Configuration -> Maven -> Install automatically -> Choose the Version
+
+Step 7: Set up Job for the Project
+     NewItem --> usermanagement -> mavenproject  and then click on OK
+     Source Code Management =  Git
+     Repository URL = https://github.com/kmrao/usermanagement.git
+     goal :  clean install
+
+Step8:  Build the Project
+
+Step: execute the shell script  which will create the Docker Image for the Application
+
+
+
+
+Post exercise solution:
+=======================
+docker stop  <<containerId>>  -- stop the docker container
+docker rm  <<containerId>>    -- delete the container
+docker rmi  <<ImageId>>       -- delete the Image
