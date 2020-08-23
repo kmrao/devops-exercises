@@ -1,0 +1,185 @@
+
+what is shell ?
+
+------------------------------------------------------------------------------------------------------------------------
+what is kernel?
+
+------------------------------------------------------------------------------------------------------------------------
+How to crate  user in Linux ?
+
+------------------------------------------------------------------------------------------------------------------------
+How do you add the user to the group?
+
+------------------------------------------------------------------------------------------------------------------------
+How do you remove the user in Unix?
+
+------------------------------------------------------------------------------------------------------------------------
+what is the difference between  super user and sudo user?
+
+------------------------------------------------------------------------------------------------------------------------
+Describe the root Account?
+
+The root account is like a systems administrator account and allows you full control of the system.
+Here you can create and maintain user accounts, assigning different permissions for each account.
+It is the default account every time you install Linux.
+
+------------------------------------------------------------------------------------------------------------------------
+
+what is file in Unix?
+Everything is file in Unix.
+
+------------------------------------------------------------------------------------------------------------------------
+what are the different access permissions associated with file?
+Read Permission
+Write Permission
+Execute Permission
+------------------------------------------------------------------------------------------------------------------------
+what are access permission associated with each File?
+ user permissions
+ Group permissions
+ Others permissions
+------------------------------------------------------------------------------------------------------------------------
+what is the purpose chmod?
+chmod is used to give the access permission(read, write, execute) on a file.
+example: chmod 764  file1.sh
+         7 =  permissions to user or owner ( read , write , execute)
+         6 =  permissions to group ( read , write)
+         4 =  permission  to others (read)
+
+------------------------------------------------------------------------------------------------------------------------
+What is the maximum length for a filename under Linux?
+255 characters
+------------------------------------------------------------------------------------------------------------------------
+What is redirection?
+
+Redirection is the process of directing data from one output to another.
+It can also be used to direct an output as an input to another process.
+------------------------------------------------------------------------------------------------------------------------
+How can you check the memory status?
+ free  -m  (displays the output in MBS)
+ free -g  (displays the output in GBS)
+------------------------------------------------------------------------------------------------------------------------
+How can you append one file to another file in Linux?
+cat file2>>file1 (The operator >> appends the output of the named file or creates the file if it is not created)
+------------------------------------------------------------------------------------------------------------------------
+How can you find a file using Terminal?
+ Examples:
+ find . -name "process.txt"  ( will look for the process.txt in current directory(. represents current directory)
+ find /dirtoSearch   -name  "process.txt"  -print  (will look for the process.txt in /dirtoSearch directory and prints the path name)
+ find /home/vivek/ -name "*.mp4" -print  (To find and report all mp4 files starting at the /home/vivek/ directory)
+
+------------------------------------------------------------------------------------------------------------------------
+
+How  do you check the lis of running processes?
+ps  -ef  command is used to find the currently running processes
+------------------------------------------------------------------------------------------------------------------------
+How do you check what are the list of java processes running?
+ps -ef | grep 'java'
+
+------------------------------------------------------------------------------------------------------------------------
+what is soft link or symbolic link in Linux?
+
+------------------------------------------------------------------------------------------------------------------------
+write a command to list all the links from a directory?
+ls -lrt | grep "^l"
+------------------------------------------------------------------------------------------------------------------------
+create a read only file in your home directory?
+$ touch file
+$ touch 400 file
+------------------------------------------------------------------------------------------------------------------------
+How will you find which operating system your system is running on in UNIX?
+$ uname -a
+------------------------------------------------------------------------------------------------------------------------
+How will you run a process in background? How will you bring that into foreground and How will you kill that process?
+ To run the process in background we need to specify &
+ Example: $ command for the job &
+     The jobs command will display all back ground jobs with job id
+ $ jobs
+   To bring the job to the foreground
+ $fg jobId
+
+  To kill the process forcefully
+  kill -9 processId
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+what is the purpose of chown?
+
+------------------------------------------------------------------------------------------------------------------------
+what is the purpose chgrp?
+
+------------------------------------------------------------------------------------------------------------------------
+How to change the owner of a file in Linux ?
+
+------------------------------------------------------------------------------------------------------------------------
+How to change the owner and group of a file?
+
+------------------------------------------------------------------------------------------------------------------------
+what is sudo user in Linux?
+
+------------------------------------------------------------------------------------------------------------------------
+How do you debug shell script?
+
+------------------------------------------------------------------------------------------------------------------------
+How to check the directory is exists in location?
+
+     if [ -d "/path/to/dir" ]
+     then
+       echo "Directory /path/to/dir exists."
+     else
+       echo "Error: Directory /path/to/dir does not exists."
+     fi
+------------------------------------------------------------------------------------------------------------------------
+How to check the file is exists in a location?
+
+ if [ -f "/path/to/file1.txt" ]
+     then
+       echo "file /path/to/file1.txt exists."
+     else
+       echo "Error: file1.txt /path/to/file1.txt does not exists."
+     fi
+------------------------------------------------------------------------------------------------------------------------
+How do you check the current location in a system?
+ pwd  command (present working directory)
+
+------------------------------------------------------------------------------------------------------------------------
+how do you change the file permissions  in Linux?
+
+------------------------------------------------------------------------------------------------------------------------
+How to add the user sudoer's list?
+
+------------------------------------------------------------------------------------------------------------------------
+How to execute  java Jar file from shell script?
+ create file sample.sh and add the below command in sample.sh. Make sure
+ java -jar  bac.jar
+ ./sample.sh
+
+------------------------------------------------------------------------------------------------------------------------
+How to connect to mysql from shell?
+
+------------------------------------------------------------------------------------------------------------------------
+How do you find for how many days your server is up?
+we can find by using uptime command
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+Software installations commands:
+===============================
+How to uninstall the libraries in  Linux?
+sudo apt-get remove library_name
+
+
+Ports related commands:
+=====================
+
+you have an IP address in your network how will you find hostname and vice versa?
+by using nslookup
+nslookup ipaddress
+unix-interview.txt
+Displaying unix-interview.txt.

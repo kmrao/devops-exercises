@@ -1,5 +1,5 @@
-In Local  System.
 
+Login into AWS and Create EC2 instance and perform the below steps
 Step1:   Install  Java.
 Step2:   Install Tomcat
 Step3:   Install the Docker
@@ -11,17 +11,4 @@ Step8:   Build the Docker Image for the above project output with tag usermanage
 Step9:   Push the Docker Image to Docker Hub.
 Step10:  Down load the Docker Image and start the server and  make sure that all the endpoints are working properly.
 
-
-Solution  in Ubunut:
-
-
-
-
-
-
-
-
-
-
-
-Solution in RHEL
+Solution:s
