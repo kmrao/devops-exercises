@@ -12,9 +12,11 @@ Step9:   Push the Docker Image to Docker Hub.
 Step10:  Down load the Docker Image and start the server and  make sure that all the endpoints are working properly.
 
 
-Solution  in Ubunut:
+Solution  in Ubuntu:
 
 
+Docker installation::
+==================
 
 
 

@@ -1,0 +1,82 @@
+
+How to check Docker Version?
+
+docker  --version
+
+------------------------------------------------------------------------------------------------------------------------
+what is docker daemon?
+
+------------------------------------------------------------------------------------------------------------------------
+How to start docker daemon service?
+
+------------------------------------------------------------------------------------------------------------------------
+How to Stop Docker Daemon Service?
+
+------------------------------------------------------------------------------------------------------------------------
+
+what are the Ubuntu versions  required to install Docker ?
+
+Eoan 19.10
+Bionic 18.04 (LTS)
+Xenial 16.04 (LTS)
+------------------------------------------------------------------------------------------------------------------------
+How do you install the old version of Docker?
+sudo apt-get remove docker docker-engine docker.io containerd runc
+------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------
+what is the simplest way to install Docker?
+   The simplest way to install  the Docker is by using the  script. The script is available
+   at get.docker.com
+ Step1) Down load the script by using
+       curl -fsSL https://get.docker.com -o get-docker.sh
+ Step2) Run the  script by using the below command.
+       sudo sh get-docker.sh
+
+ Step3) Check the Docker is installed or not by using below command
+        docker --version
+
+---------------------------------------------------------------------------------
+How do you check what are the docker Images exists in Docker Engine?
+
+docker image ls
+
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+How do you delete the docker Image?
+docker rmi  <<ImageId>>
+Note: Make sure that No container is running for that Image before deleting the Image
+------------------------------------------------------------------------------------------------------------------------
+what is container?
+A container is running instance of Docker Image
+------------------------------------------------------------------------------------------------------------------------
+How to Run the Docker Image As Container?
+docker run <<ImageId>>
+docker run  -p requiredPort:ExposedPort  <<ImageId>>  (Running the Image as container with specific port)
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+How to run the Docker Image in interactive mode?
+docker run -it  <<ImageId>>  /bin/bash
+i.e we are entering into ubuntu of Docker Image and we can inspect what exists here.
+------------------------------------------------------------------------------------------------------------------------
+How do you check what are the containers Running Currently?
+docker ps
+
+-----------------------------------------------------------------------------------
+
+How do you check what are the containers exists in Docker(currently Running and Ran in the past)?
+docker ps -a
+
+-----------------------------------------------------------------------------------
+How many Containers we can create from Image?
+we can create any number containers from Image depends on the Requirement.
+
+------------------------------------------------------------------------------------------------------------------------
+How do you delete the Docker Container?
+docker rm <<ContainerId>>
+------------------------------------------------------------------------------------------------------------------------
+
+
+
