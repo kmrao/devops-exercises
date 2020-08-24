@@ -1,10 +1,21 @@
+https://www.edureka.co/blog/interview-questions/docker-interview-questions/
 
 How to check Docker Version?
 
 docker  --version
 
 ------------------------------------------------------------------------------------------------------------------------
-what is docker daemon?
+Explain Docker Architecture?
+
+Docker has 3 components
+
+Docker CLI(docker client)
+REST API
+Server(Docker Daemon)
+
+Docker client will send the requests to the server by using REESt API
+Docker Host has docker daemon service(Docker server)  which will accepts the requests and performs the operations
+
 
 ------------------------------------------------------------------------------------------------------------------------
 How to start docker daemon service?
@@ -42,10 +53,15 @@ How do you check what are the docker Images exists in Docker Engine?
 docker image ls
 
 ------------------------------------------------------------------------------------------------------------------------
+How do you pull the Docker Image from DockerHub?
+
+docker pull <<ImageName>>
+
 ------------------------------------------------------------------------------------------------------------------------
 How do you delete the docker Image?
 docker rmi  <<ImageId>>
 Note: Make sure that No container is running for that Image before deleting the Image
+
 ------------------------------------------------------------------------------------------------------------------------
 what is container?
 A container is running instance of Docker Image
@@ -55,8 +71,6 @@ docker run <<ImageId>>
 docker run  -p requiredPort:ExposedPort  <<ImageId>>  (Running the Image as container with specific port)
 
 ------------------------------------------------------------------------------------------------------------------------
-
-
 How to run the Docker Image in interactive mode?
 docker run -it  <<ImageId>>  /bin/bash
 i.e we are entering into ubuntu of Docker Image and we can inspect what exists here.
@@ -74,9 +88,49 @@ How many Containers we can create from Image?
 we can create any number containers from Image depends on the Requirement.
 
 ------------------------------------------------------------------------------------------------------------------------
-How do you delete the Docker Container?
-docker rm <<ContainerId>>
+How do you access a running container?
+
+docker exec -it <<containerId> bash
+
+------------------------------------------------------------------------------------------------------------------------
+How to start the Docker Container?
+
+docker start <<containerId>>
+------------------------------------------------------------------------------------------------------------------------
+How to stop the Docker Container?
+
+docker  stop <<ContainerId>>
+
+------------------------------------------------------------------------------------------------------------------------
+How to Kill the Docker Container?
+
+docker kill <<ContainerId>>
+
 ------------------------------------------------------------------------------------------------------------------------
 
+How do you delete the Docker Container?
+docker rm <<ContainerId>>
+Note: If you delete the container all the data stored in the container will be deleted automatically.
+Note: If you stop the container we will not loose the data.
+------------------------------------------------------------------------------------------------------------------------
 
+what are the different storage drivers and what is the popular storage driver?
 
+------------------------------------------------------------------------------------------------------------------------
+What are the most popular Docker Commands will be used in Dockerfile to build Docker Image?
+
+FROM
+RUN
+ENV
+WORKDIR
+
+------------------------------------------------------------------------------------------------------------------------
+How can you login to docker from CLI ?
+docker login
+
+------------------------------------------------------------------------------------------------------------------------
+will you loose your data when a Docker Container exists?
+No, you won’t lose any data when Docker container exits. Any data that your application writes to the container gets
+preserved on the disk until you explicitly delete the container. The file system for the container persists
+even after the container halts.
+------------------------------------------------------------------------------------------------------------------------

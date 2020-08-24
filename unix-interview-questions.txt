@@ -1,34 +1,69 @@
-
-what is shell ?
-
+what is LILO?
+LILO is a boot loader for Linux. It is used to load  Linux into memory and start the operating system
+LILO can be  configured to boot other operating systems as well. LILO is customizable.
+The configuration file for LILO is lilo.conf. LILO is also a code snippet that loads PC BIOS into main memory
+at the time of starting the computer system.
 ------------------------------------------------------------------------------------------------------------------------
 what is kernel?
+Kernel is the core operating system that controls all the tasks of the system
+
+------------------------------------------------------------------------------------------------------------------------
+
+what is shell ?
+shell is the interface that allows the users to communicate with kernel. user interacts with shell
+and shell interacts with user.
 
 ------------------------------------------------------------------------------------------------------------------------
 How to crate  user in Linux ?
+sudo adduser <<username>>
+This will also request for user password
 
 ------------------------------------------------------------------------------------------------------------------------
 How do you add the user to the group?
+sudo usermod -a -G  <<groupname>>  <<username>>
 
+------------------------------------------------------------------------------------------------------------------------
+How do you remove the user from the group?
+sudo deluser <<username>> <<groupname>>
+------------------------------------------------------------------------------------------------------------------------
+How do you disable the user in Linux?
+sudo passwd -l <<username>>
 ------------------------------------------------------------------------------------------------------------------------
 How do you remove the user in Unix?
+sudo userdel -r <<username>>
 
 ------------------------------------------------------------------------------------------------------------------------
-what is the difference between  super user and sudo user?
+what is the difference between sudo and su?
+sudo runs a single command with root privileges (It does not switch the user)
+su switches you to the root user account and requires the root account's password -- depends on OS the root account
+password will be remembered  to 15 minutes
+
+sudo - requires current user password
+su - requires Root user  password
+------------------------------------------------------------------------------------------------------------------------
+what is the difference between sudo vs root?
+root user  or admin user or super user  -- with user Id 0 and this user has all permissions or unlimited privileges
+sudo user -> prior to the invention of of the sudo if we want to perform administrative task you had to login as root
+with root password or su  (substitution user) command with root password.
+
+That is  bit hassle and also does't  let you give users partial administrative powers.so the sudo command was invented.
+The sudo  command lets you execute commands with superuser privileges as long as your user id is in the sudoers  file.
+giving you the necessary authorization.
+
+sudo su would allow you to simply become root. The result is the same as if you had logged in as root or executed the
+su command
 
 ------------------------------------------------------------------------------------------------------------------------
 Describe the root Account?
-
 The root account is like a systems administrator account and allows you full control of the system.
 Here you can create and maintain user accounts, assigning different permissions for each account.
 It is the default account every time you install Linux.
-
 ------------------------------------------------------------------------------------------------------------------------
 
 what is file in Unix?
 Everything is file in Unix.
-
 ------------------------------------------------------------------------------------------------------------------------
+
 what are the different access permissions associated with file?
 Read Permission
 Write Permission
@@ -46,14 +81,46 @@ example: chmod 764  file1.sh
          6 =  permissions to group ( read , write)
          4 =  permission  to others (read)
 
+Example1:
+$ ls -lrt stock_trading_systems
+-rwxrwxrwx 1 example Domain Users 0 Jul 15 11:42 stock_trading_systems
+(owner has read , write, execute permission , group has read , write and execute permissions , others - has read , write and execute permissions)
+Example2: Remove all permissions to group and other and keep read only permissions to the  owner.
+$chmod 400 stock_trading_systems
+r-- --- --- 1 example Domain Users 0 Jul 15 11:42 stock_trading_systems
 ------------------------------------------------------------------------------------------------------------------------
+
 What is the maximum length for a filename under Linux?
 255 characters
+------------------------------------------------------------------------------------------------------------------------
+tar command: tar command in UNIX or Linux is one of the important command which provides archiving functionality in UNIX
+tar command is used to create compressed or uncompressed archive files by using eith gizip or bzip2
+
+c -- create , for creating tar file
+v -- verbose , display name of files including, excluding from tar command
+f -- following, used to point name of the tar file to be created.
+x -- extract , for extracting files from the tar file
+t -- for viewing the content of tar file
+z -- zi, tells tar command that creates tar file using gzip
+r -- update or adds file or directory in already existed tar file
+
+Examples:
+ tar -cvf  trading.tar  *  (will create a tar file with all files from current directory)
+ tar -tvf  trading.tar (is used to view the contents of tar file)
+ tar -xvf  trading.tar (is used to extract the content of tar file)
+ tar -cvf  equitytrading.tar  equity currency  ( will create equitytrading tar file with equity and currency files)
+ tar  -zcvf trading.tgz * (compressed tar file using gzip)
+ tar  -ztvf trading.tgz ( is used to view the contents from compressed tar file)
+ tar  -zxvf trading.tgz (is used to extract the contents  from a .tgz or tar.gz file)
+ tar  -cvf  sample.tar  equity currency (will update the contents from tar file)
+
 ------------------------------------------------------------------------------------------------------------------------
 What is redirection?
 
 Redirection is the process of directing data from one output to another.
 It can also be used to direct an output as an input to another process.
+
+redirection will be done by using >>  operator
 ------------------------------------------------------------------------------------------------------------------------
 How can you check the memory status?
  free  -m  (displays the output in MBS)
@@ -62,19 +129,30 @@ How can you check the memory status?
 How can you append one file to another file in Linux?
 cat file2>>file1 (The operator >> appends the output of the named file or creates the file if it is not created)
 ------------------------------------------------------------------------------------------------------------------------
-How can you find a file using Terminal?
+How can you find a file using Terminal(https://javarevisited.blogspot.com/2018/08/10-example-of-find-command-in-unix-linux.html)?
  Examples:
  find . -name "process.txt"  ( will look for the process.txt in current directory(. represents current directory)
- find /dirtoSearch   -name  "process.txt"  -print  (will look for the process.txt in /dirtoSearch directory and prints the path name)
- find /home/vivek/ -name "*.mp4" -print  (To find and report all mp4 files starting at the /home/vivek/ directory)
+ find  /dirtoSearch   -name  "process.txt"  -print  (will look for the process.txt in /dirtoSearch directory and prints the path name)
+ find  /home/vivek/ -name "*.mp4" -print  (To find and report all mp4 files starting at the /home/vivek/ directory)
+
+ find  . -name  "*.java"  ( will display the list of java files in current directory)
+ find  . -perm  644  ( will display the files which has permissions in the current directory)
+ find  . -name "*.txt" -print | xagrs  grep "Exception"  (Find all text files which contains work exception)
+
 
 ------------------------------------------------------------------------------------------------------------------------
-
 How  do you check the lis of running processes?
 ps  -ef  command is used to find the currently running processes
 ------------------------------------------------------------------------------------------------------------------------
 How do you check what are the list of java processes running?
 ps -ef | grep 'java'
+
+------------------------------------------------------------------------------------------------------------------------
+what is zombie process in UNIX? (Only Interview question)
+In Unix we have parent - child processes. when the child process finishes before the parent, the kernel
+still keeps some of its information about the child in case parent might need it.
+for example the parent may need to check the child's exit status. In this case the child process
+is called as zombie process (in ps -ef child will have Z in its status)
 
 ------------------------------------------------------------------------------------------------------------------------
 what is soft link or symbolic link in Linux?
@@ -89,7 +167,7 @@ $ touch 400 file
 ------------------------------------------------------------------------------------------------------------------------
 How will you find which operating system your system is running on in UNIX?
 $ uname -a
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
 How will you run a process in background? How will you bring that into foreground and How will you kill that process?
  To run the process in background we need to specify &
  Example: $ command for the job &
@@ -100,33 +178,45 @@ How will you run a process in background? How will you bring that into foregroun
 
   To kill the process forcefully
   kill -9 processId
-
 ------------------------------------------------------------------------------------------------------------------------
 
 
 
 
 
+------------------------------------------------------------------------------------------------------------------------
 what is the purpose of chown?
+chown - change owner is used owner of the file , directories.
+
+ls -l  filename.tx --> will display file permissions , owner , group , size and created details.
+
+chown <username> <filename>
+Examples:
+$chown rao file1  (will change the ownership of a file name file1 to a new owner named rao)
+$chown rao file1 dir1 (will change the ownership of a file1 and dir1  to a new owner named rao)
+----------------------------------------------------------
+How to change the owner and group of a file?
+chown <username>: <group name>  file
+----------------------------------------------------------
+How to change the group of a File?
+chown :GROUP  file
+example: $chown :www-data file1 (will change the owning group of a file named file1 to www-data)
+----------------------------------------------------------
+How to Recursively change the File OwnerShip?
+$chown -R user:group <<directory name>>
+$chown -R www-data: /var/www
+
 
 ------------------------------------------------------------------------------------------------------------------------
 what is the purpose chgrp?
 
 ------------------------------------------------------------------------------------------------------------------------
-How to change the owner of a file in Linux ?
 
-------------------------------------------------------------------------------------------------------------------------
-How to change the owner and group of a file?
-
-------------------------------------------------------------------------------------------------------------------------
-what is sudo user in Linux?
-
-------------------------------------------------------------------------------------------------------------------------
 How do you debug shell script?
+
 
 ------------------------------------------------------------------------------------------------------------------------
 How to check the directory is exists in location?
-
      if [ -d "/path/to/dir" ]
      then
        echo "Directory /path/to/dir exists."
@@ -149,6 +239,7 @@ How do you check the current location in a system?
 ------------------------------------------------------------------------------------------------------------------------
 how do you change the file permissions  in Linux?
 
+
 ------------------------------------------------------------------------------------------------------------------------
 How to add the user sudoer's list?
 
@@ -157,29 +248,104 @@ How to execute  java Jar file from shell script?
  create file sample.sh and add the below command in sample.sh. Make sure
  java -jar  bac.jar
  ./sample.sh
-
 ------------------------------------------------------------------------------------------------------------------------
 How to connect to mysql from shell?
-
 ------------------------------------------------------------------------------------------------------------------------
 How do you find for how many days your server is up?
+$uptime
 we can find by using uptime command
 
 ------------------------------------------------------------------------------------------------------------------------
 
 
-
 Software installations commands:
 ===============================
-How to uninstall the libraries in  Linux?
-sudo apt-get remove library_name
+https://www.digitalocean.com/community/tutorials/package-management-basics-apt-yum-dnf-pkg
+
+Linux Package management:
+Software  is usually distributed in the form of packages, kept in repositories. Working with packages is known as
+package management.A package management system does much more than one-time installation of software.
+It also provides tools for upgrading already-installed package
+APT -- Advanced packaging Tool.
+
+Operating System	Format	  Tool(s)
+Debian	            .deb	   apt, apt-cache, apt-get, dpkg
+Ubuntu           	.deb	   apt, apt-cache, apt-get, dpkg
+CentOS           	.rpm	   yum
+RedHat Family       .rpm	   yum
+Fedora	            .rpm	   dnf
 
 
-Ports related commands:
-=====================
+Find or search for a package:
+--------------------------
+ apt search <search string>
+ yum search <search string>
+ dnf search <search string>
 
-you have an IP address in your network how will you find hostname and vice versa?
-by using nslookup
-nslookup ipaddress
-unix-interview.txt
-Displaying unix-interview.txt.
+Install packages from repositories:
+----------------------------------
+sudo apt-get install package
+sudo apt-get install package1 package2 ..
+sudo yum install package
+sudo yum install package1 package2 .
+sudo yum install -y package
+sudo dnf install package
+
+Remove the package from Local System
+---------------------------------
+sudo apt-get remove package
+sudo apt-get remove package1 package2 ..
+sudo yum remove package
+sudo yum remove package1 package2 .
+sudo yum remove -y package
+sudo dnf remove package
+
+update the package list
+----------------------
+sudo apt-get update
+sudo apt update
+yum check-update
+dnf check-update
+
+
+------------------------------------------------------------------------------------------------------------------------
+Networking Unix commands:
+========================
+
+ping:
+  1. To ensure that a network connection can be established
+  2. Timing information as to the speed of connection
+
+Example:  ping  www.google.com   or  ping <<ipaddress>>
+output looks like:
+64 bytes from par10s28-in-f100.1e100.net (216.58.204.100): icmp_seq=1 ttl=118 time=1.75 ms
+64 bytes from par10s28-in-f100.1e100.net (216.58.204.100): icmp_seq=2 ttl=118 time=1.98 ms
+64 bytes from par10s28-in-f100.1e100.net (216.58.204.100): icmp_seq=3 ttl=118 time=1.96 ms
+
+press CTRL+C  to exit.
+-----------------------------------------------------------------
+netstat: Most useful and very versatile for finding a connection to and from the host.
+
+netstat -a  or netstat -all (will display all the connections including TCP and UDP)
+netstat -t  or netstat --tcp (will display only tcp connections)
+netstat -u  or netstat --udp (will display only UDP connection)
+netstat  -g  will display all multicast network subscribed by this host
+netstat -nap | grep  port (will display  the process Id of application which is using that port)
+-----------------------------------------------------------------
+ifconfig -- will display the network configuration
+
+-----------------------------------------------------------------
+nslookup: If you now the IPAddress  it will display  hostname and vice versa.
+nslookup  www.google.com
+nslookup  blogger.com
+
+----------------------------------------------------------------------
+
+hostname  (displays the machine hostname)
+hostname -d (displays the domain name the machine belongs to)
+hostname -f (display fully qualified host and domain name)
+hostname -i (displays the Ip address for the current machine)
+
+----------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------
