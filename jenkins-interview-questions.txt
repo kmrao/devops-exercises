@@ -1,0 +1,62 @@
+what  is jenkins?
+
+Jenkins is an open source CI/CD tool or Server.
+Jenkins  is used to build and test your software projects continuously. -- CI
+It also allows you to continuously deliver your software by integrating with a large number of testing
+and deployment technologies. --CD
+
+-----------------------------------------------------------------------------------------------------------------------
+How to Start the Jenkins Server ?
+
+Jenkins server can start in many ways
+
+Make sure Java is available in your system
+Download jenkins.war
+
+Process1:
+   java -jar  jenkins.war
+   and access it by using  http://localhost:8080/jenkins
+
+Process2:
+     1.Install the tomcat web server
+     2.Copy the jenkins war into tomcat webapps folder and start the Tomcat
+      access by using http://localhost:8080/jenkins
+
+Process3:
+     1: Install the Docker
+     2: Download the Docker Image from Docker hub
+     3: docker run --name=jenkins -p 8080:8080  jenkins:lts
+
+-----------------------------------------------------------------------------------------------------------------------
+what is the relation between Hudson and Jenkins?
+Hudson was the earlier name and version of current Jenkins. After some issues, they renamed the project
+from Hudson to Jenkins.
+
+
+-----------------------------------------------------------------------------------------------------------------------
+what are  most widely used plugins in Jenkins?
+ Git -- source code management plug in
+ Maven Integration Plugin -- to build the maven projects
+ Docker plugin -- to build and publish the docker images
+ gradle plugin -- to build gradle projects
+ backup plugin -- to back up the jenkins work space
+ Pipe line plugin -- is  used to make the jenkins pipe line
+
+ -----------------------------------------------------------------------------------------------------------------------
+ what is the use of Jenkins Home Directory?
+ All the settings, plugins , log s, user details and job configurations are stored in the JENKINS_HOME directory.
+ This  is the directory we need to take back up if we want to back up Jenkins
+
+ -----------------------------------------------------------------------------------------------------------------------
+How do you achieve the Continuous Integration in Jenkins?
+
+ All the Developers push their source code into Git repository
+ Jenkins server checks the shared Git repository at specified intervals and detected changes are then taken into the build.
+ The build results and test results are shared to the respective developers after build (if there any issues in code the
+ build will fail and developer need to fix the issues to make build green)
+ The built application is deployed to test server
+ The clean and tested build is deployed to the production server.
+
+ This is a regular process and we need to write a Jenkins file to automate this process
+
+  -----------------------------------------------------------------------------------------------------------------------

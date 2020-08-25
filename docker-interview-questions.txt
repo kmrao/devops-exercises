@@ -116,13 +116,7 @@ Note: If you stop the container we will not loose the data.
 
 what are the different storage drivers and what is the popular storage driver?
 
-------------------------------------------------------------------------------------------------------------------------
-What are the most popular Docker Commands will be used in Dockerfile to build Docker Image?
 
-FROM
-RUN
-ENV
-WORKDIR
 
 ------------------------------------------------------------------------------------------------------------------------
 How can you login to docker from CLI ?
@@ -134,3 +128,15 @@ No, you won’t lose any data when Docker container exits. Any data that your ap
 preserved on the disk until you explicitly delete the container. The file system for the container persists
 even after the container halts.
 ------------------------------------------------------------------------------------------------------------------------
+
+what is Dockerfile?
+Dockerfile is used to build a docker image. A Dockerfile contains a list of commands which are used to build a
+Docker Image.
+
+------------------------------------------------------------------------------------------------------------------------
+What are the most popular Docker Commands will be used in Dockerfile to build Docker Image?
+
+FROM
+RUN
+ENV
+WORKDIR
